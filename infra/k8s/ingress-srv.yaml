@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  name: appx-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /auth/(.*)
+            pathType: Prefix 
+            backend:
+              serviceName: auth-srv
+              servicePort: 4000
+          - path: /user/(.*)
+            pathType: Prefix 
+            backend:
+              serviceName: user-srv
+              servicePort: 4001
+          - path: /book/(.*)
+            pathType: Prefix 
+            backend:
+              serviceName: book-srv
+              servicePort: 4002
+            

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: book
+  template:
+    metadata:
+      labels:
+        app: book
+    spec:
+      containers:
+        - name: book
+          image: us.gcr.io/biblioteca-dev-316501/book
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: book-srv 
+spec:
+  selector:
+    app: book      
+  ports:
+    - name: book
+      protocol: TCP
+      port: 4002
+      targetPort: 4002
