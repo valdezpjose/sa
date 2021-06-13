@@ -24,7 +24,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology:true})
 
 
 app.post('/new',(req,res)=>{
-    const{name,author,synopsis,genre,editorial,image,stock} = req.body
+    const{name,author,synopsis,genre,editorial,image,stock,price} = req.body
     Book.create({
         name:name,
         author: author,
@@ -37,7 +37,7 @@ app.post('/new',(req,res)=>{
     },
     (err,book)=>{
         if(err) return res.status(500).send(err) // error crear libro
-        res.status(200).send("Libro creado")     
+        res.status(200).send({"action":"Libro creado"})     
     });
 });
 
@@ -60,7 +60,7 @@ app.post('/update', async (req,res)=>{
             name: name,
             editorial: editorial
         }, data);
-        return res.status(200).send('Libro actualizado');
+        return res.status(200).send({"action":"Libro actualizado"});
     }else{
         return res.status(404).send('No existe el usuario.');
     }
@@ -79,7 +79,7 @@ app.post('/delete', async (req,res)=>{
             name: name,
             editorial: editorial
         });
-        return res.status(200).send('Libro actualizado');
+        return res.status(200).send({"action":"Libro eliminado"});
     }else{
         return res.status(404).send('No existe el usuario.');
     }

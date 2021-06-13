@@ -91,7 +91,7 @@ app.post('/login', (req,res)=>{
           expiresIn: 86400 // 24 horas
         });
         
-        res.status(200).send({ auth: true, token: token });
+        res.status(200).send({ auth: true, token: token, "type": user.type });
       });
 
 });
