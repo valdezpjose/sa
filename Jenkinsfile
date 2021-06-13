@@ -4,14 +4,14 @@ pipeline {
         stage('Deploy to k8s') {
             steps {
                 script {
-			dir("sa"){
+			
 
 
                         sh "cat Jenkinsfile"
 			sh "echo $PWD"
-                        sh "gcloud auth activate-service-account --key-file /var/lib/jenkins/sa/sa-private-key.json"
-                        sh "skaffold dev --filename='/var/lib/jenkins/sa/skaffold.yaml'"                         
-}                
+                        sh "gcloud auth activate-service-account --key-file sa-private-key.json"
+                        sh "skaffold dev"                         
+                
 }
             }
         }
