@@ -1,14 +1,20 @@
 pipeline {
     agent any
     stages {
-        stage('gcloud') {
+        stage('Deploy to k8s') {
             steps {
-                sh 'sudo gcloud auth activate-service-account --key-file /var/lib/jenkins/sa-private-key.json'
-            }
-        }
-        stage('skaffold') {
-            steps {
-                sh 'skaffold dev'
+                script {
+
+                        sh "gcloud auth activate-service-account --key-file /var/lib/jenkins/sa/sa-private-key.json"
+                        sh "skaffold dev --filename='/var/lib/jenkins/sa/skaffold.yaml'" 
+                        
+
+                        
+
+                        
+                        
+
+                }
             }
         }
     }

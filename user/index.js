@@ -47,6 +47,13 @@ app.get('/allEditorials',(req,res)=>{
     });
 });
 
+app.get('/inactive',(req,res)=>{
+    User.find({status: "inactivo"},(err,users)=>{
+
+        res.send(users);
+    });
+});
+
 app.get('/me', (req,res)=>{
     var token = req.headers['x-access-token'];
     if(!token) return res.status(401).send({ auth: false, message: 'No se encuentra un token.' });
