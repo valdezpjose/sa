@@ -4,7 +4,7 @@ pipeline {
         stage('Deploy to k8s') {
             steps {
                 script {
-			dir(sa){
+			dir("sa"){
 
 
                         sh "echo $PWD"
