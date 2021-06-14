@@ -1,7 +1,5 @@
 - hosts: practica
   become: True
   tasks:
-  - name: Update packages
-    apt:
-      update_cache: yes
-      cache_valid_time: 86400 
+  - name: Update
+    action: command apt-get update -y
