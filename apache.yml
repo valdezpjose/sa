@@ -1,9 +1,5 @@
 - hosts: practica
   become: True
-  tasks: 
-        - file: 
-               path: /home/asterionmorrigan/holamundo
-               state: touch
-               owner: root
-               group: root
-               mode: 0600
+  tasks:
+    - name: update system
+      action: apt-get update
