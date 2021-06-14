@@ -6,4 +6,4 @@
   - name: install java
     action: command apt install openjdk-11-jdk -y
   - name: java version
-    action: java -version
+    action: command java -version
