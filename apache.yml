@@ -1,5 +1,5 @@
 - hosts: practica
   become: True
   tasks:
-    - name: update system
-      action: apt-get update
+    - name: ensure package cache is up to date
+      action: apt update
