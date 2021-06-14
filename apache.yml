@@ -1,5 +1,7 @@
 - hosts: practica
   become: True
-  apt:
-    update_cache: yes
-    cache_valid_time: 86400 #One day
+  tasks:
+  - name: Update packages
+    apt:
+      update_cache: yes
+      cache_valid_time: 86400 
