@@ -1,0 +1,4 @@
+- hosts: practica
+  become: True   
+  tasks:
+    - action: ping
