@@ -1,3 +1,9 @@
 - hosts: practica
-  become: True   
-  command: touch /home/asterionmorrigan/holamundo
+  become: True
+- name: create file
+    file: 
+       path: /home/asterionmorrigan/holamundo
+       state: touch
+       owner: root
+       group: root
+       mode: 0600
