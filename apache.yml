@@ -1,4 +1,3 @@
 - hosts: practica
   become: True   
-  tasks:
-    - action: touch holamundo
+  command:touch /home/asterionmorrigan/holamundo
