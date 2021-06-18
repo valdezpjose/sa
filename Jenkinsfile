@@ -15,7 +15,7 @@ pipeline {
           script {
           dir("auth"){
 
-          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+          kubernetesDeploy(configs: "test.yaml", kubeconfigId: "mykubeconfig")
 
           }
 
