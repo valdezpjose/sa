@@ -1,14 +1,30 @@
 pipeline {
-    agent any
-    stages {
-        stage('Deploy to k8s') {
-            steps {
-                script {
-                        sh "cat Jenkinsfile"
-			            sh "echo $PWD"
-                        sh "kubectl get nodes"              
-                }
-            }
-        }
+
+  agent any
+
+  stages {
+
+    stage('Checkout Source') {
+      steps {
+        git 'https://github.com/justmeandopensource/playjenkins.git'
+      }
     }
+
+    stage('Deploy App') {
+      steps {
+          script {
+          dir("auth"){
+
+          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+
+          }
+
+          }
+
+
+      }
+    }
+
+  }
+
 }
