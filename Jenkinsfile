@@ -13,7 +13,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         sshagent(['JenkinsUser']) {
-            sh "scp -o StrictHostKeyChecking=no test.yaml asterionmorrigan@162.222.181.223:/var/lib/jenkins/Kubernetes_Test/"
+            sh "scp -i /home/asterionmorrigan/jenkinsGCP.pem  test.yaml asterionmorrigan@162.222.181.223:/var/lib/jenkins/Kubernetes_Test/"
                   }
           // script{
           //         try{
