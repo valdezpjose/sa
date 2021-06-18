@@ -13,6 +13,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         sshagent(['JenkinsUser']) {
+            sh "sudo chmod 777 /var/lib/jenkins/workspace/Kubernetes_Test/test.yaml"
             sh "sudo scp -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem test.yaml asterionmorrigan@162.222.181.223:/var/lib/jenkins/workspace/Kubernetes_Test"
                   }
           script{
