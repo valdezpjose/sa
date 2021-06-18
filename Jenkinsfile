@@ -16,7 +16,7 @@ pipeline {
                                 kubernetesDeploy(
                                 credentialsType: 'KubeConfig',
                                 kubeConfig: [path: '/var/lib/jenkins/workspace/Kubernetes Test/.kube/config'],
-                                configs: 'test.yml')
+                                configs: 'test.yaml')
 
           }
       }
