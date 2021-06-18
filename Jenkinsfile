@@ -1,6 +1,6 @@
 pipeline {
 
-  agent {label 'kubepod'}
+  agent any
 
   stages {
 
@@ -13,7 +13,10 @@ pipeline {
     stage('Deploy App') {
       steps {
           script{
-          kubernetesDeploy(configs: "test.yaml", kubeconfig:"mykubeconfig")
+                                kubernetesDeploy(
+                                credentialsType: 'KubeConfig',
+                                kubeConfig: [path: '/var/lib/jenkins/workspace/.kube/config'],
+                                configs: 'test.yml')
 
           }
       }
