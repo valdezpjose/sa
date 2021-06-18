@@ -13,7 +13,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         sshagent(['JenkinsUser']) {
-            sh "sudo scp -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem Dockerfile asterionmorrigan@162.222.181.223:/var/lib/jenkins/workspace/Kubernetes_Test/book/"
+            sh "sudo scp -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem Dockerfile asterionmorrigan@162.222.181.223:/var/lib/jenkins/workspace/Kubernetes_Test/book"
                   }
           script{
                   try{
