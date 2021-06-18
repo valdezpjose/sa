@@ -13,7 +13,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         sshagent(['JenkinsUser']) {
-            sh "scp -o StrickHostKeyChecking=no test.yaml asterionmorrigan@162.222.181.223:/home/asterionmorrigan/prueba/"
+            sh "scp -o StrictHostKeyChecking=no test.yaml asterionmorrigan@162.222.181.223:/home/asterionmorrigan/prueba/"
                   }
           script{
                   try{
