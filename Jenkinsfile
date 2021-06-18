@@ -13,16 +13,16 @@ pipeline {
     stage('Deploy App') {
       steps {
         sshagent(['JenkinsUser']) {
-            sh "scp -i /home/asterionmorrigan/jenkinsGCP.pem  test.yaml asterionmorrigan@162.222.181.223:/var/lib/jenkins/Kubernetes_Test/"
+            sh "scp -o StrickHostKeyChecking=no test.yaml asterionmorrigan@162.222.181.223:/home/asterionmorrigan/prueba/"
                   }
-          // script{
-          //         try{
-          //             sh "kubectl apply -f test.yaml"
-          //         }
-          //         catch(error){
-          //             sh "kubectl create -f test.yaml"
-          //         }
-          // }
+          script{
+                  try{
+                      sh "ssh asterionmorrigan@162.222.181.223 kubectl apply -f test.yaml"
+                  }
+                  catch(error){
+                      sh "ssh asterionmorrigan@162.222.181.223 kubectl create -f test.yaml"
+                  }
+          }
       }
     }
 
