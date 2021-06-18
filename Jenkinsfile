@@ -18,7 +18,7 @@ pipeline {
                   }
           script{
                   try{
-                      sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 cd /var/lib/jenkins/workspace/Kubernetes_Test/; skaffold dev"
+                      sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 cd /var/lib/jenkins/workspace/Kubernetes_Test/; sudo gcloud auth activate-service-account --key-file /var/lib/jenkins/workspace/Kubernetes_Test/sa-private-key.json; skaffold dev"
                   }
                   catch(error){
                       sh "echo error "
