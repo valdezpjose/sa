@@ -12,9 +12,16 @@ pipeline {
 
     stage('Deploy App') {
       steps {
+        sshagent(['JenkinsUser']) {
+            sh "scp -o StrictHostKeyChecking=no test.yaml asterionmorrigan@162.222.181.223:/var/lib/jenkins/Kubernetes_Test/"
+                  }
           script{
-kubernetesDeploy configs: 'test.yaml', kubeconfigId: 'kubeconfig'
-
+                  try{
+                      sh "ssh asterionmorrigan@162.222.181.223 kubectl apply -f test.yaml"
+                  }
+                  catch(error){
+                      sh "ssh asterionmorrigan@162.222.181.223 kubectl create -f test.yaml"
+                  }
           }
       }
     }
