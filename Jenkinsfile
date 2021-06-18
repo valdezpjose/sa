@@ -12,7 +12,10 @@ pipeline {
 
     stage('Deploy App') {
       steps {
-          kubernetesDeploy configs: 'test.yaml', kubeConfig: [path: ''], kubeconfigId: 'mykubeconfig', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+          script{
+          kubernetesDeploy(configs: "test.yaml", kubeconfig:"mykubeconfig")
+
+          }
       }
     }
 
