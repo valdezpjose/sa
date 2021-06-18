@@ -23,8 +23,6 @@ pipeline {
             sh "sudo scp -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem /var/lib/jenkins/workspace/Kubernetes_Test/user/Dockerfile asterionmorrigan@162.222.181.223:/var/lib/jenkins/workspace/Kubernetes_Test/user/"
                   }
           
-
-              }
           script{
                   try{
                       sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 sudo docker build -t /var/lib/jenkins/workspace/Kubernetes_Test/user/ ."
@@ -46,6 +44,8 @@ pipeline {
                       sh "echo error "
                   }
           }
+              }
+
 
 
     }
