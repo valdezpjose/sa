@@ -13,12 +13,11 @@ pipeline {
     stage('Deploy App') {
       steps {
         sshagent(['JenkinsUser']) {
-            sh "sudo chmod 777 /var/lib/jenkins/workspace/Kubernetes_Test/test.yaml"
-            sh "sudo scp -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem test.yaml asterionmorrigan@162.222.181.223:/var/lib/jenkins/workspace/Kubernetes_Test"
+            sh "sudo scp -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem Dockerfile asterionmorrigan@162.222.181.223:/var/lib/jenkins/workspace/Kubernetes_Test/book/"
                   }
           script{
                   try{
-                      sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 cd /var/lib/jenkins/workspace/Kubernetes_Test/; sudo gcloud auth activate-service-account --key-file /var/lib/jenkins/workspace/Kubernetes_Test/sa-private-key.json; skaffold dev"
+                      sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 cd /var/lib/jenkins/workspace/Kubernetes_Test/book/; sudo docker build .; sudo docker push us.gcr.io/biblioteca-dev-316501/book;"
                   }
                   catch(error){
                       sh "echo error "
