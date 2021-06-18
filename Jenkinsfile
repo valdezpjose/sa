@@ -17,10 +17,10 @@ pipeline {
                   }
           script{
                   try{
-                      sh "ssh asterionmorrigan@162.222.181.223 kubectl apply -f test.yaml"
+                      sh "ssh -i /home/asterionmorrigan/jenkinsGCP.pem asterionmorrigan@162.222.181.223 kubectl apply -f test.yaml"
                   }
                   catch(error){
-                      sh "ssh asterionmorrigan@162.222.181.223 kubectl create -f test.yaml"
+                      sh "echo error "
                   }
           }
       }
