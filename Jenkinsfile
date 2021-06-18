@@ -18,7 +18,7 @@ pipeline {
                   }
           script{
                   try{
-                      sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 kubectl apply -f test.yaml"
+                      sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 kubectl apply -f /var/lib/jenkins/workspace/Kubernetes_Test/test.yaml"
                   }
                   catch(error){
                       sh "echo error "
