@@ -30,9 +30,9 @@ pipeline {
             //BUILDS DE LAS IMAGENES
             script{
                     try{
-                        sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 docker build -t us.gcr.io/biblioteca-dev-316501/user /var/lib/jenkins/workspace/Kubernetes_Test/book/."
+                        sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 docker build -t us.gcr.io/biblioteca-dev-316501/book /var/lib/jenkins/workspace/Kubernetes_Test/book/."
                         sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 docker build -t us.gcr.io/biblioteca-dev-316501/user /var/lib/jenkins/workspace/Kubernetes_Test/user/."
-                        sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 docker build -t us.gcr.io/biblioteca-dev-316501/user /var/lib/jenkins/workspace/Kubernetes_Test/auth/."
+                        sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 docker build -t us.gcr.io/biblioteca-dev-316501/auth /var/lib/jenkins/workspace/Kubernetes_Test/auth/."
                     }
                     catch(error){
                         sh "echo error "
