@@ -52,6 +52,7 @@ pipeline {
               sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 kubectl apply -f /var/lib/jenkins/workspace/Kubernetes_Test/infra/k8s/book-depl.yaml"
               sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 kubectl apply -f /var/lib/jenkins/workspace/Kubernetes_Test/infra/k8s/user-depl.yaml"
               sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 kubectl apply -f /var/lib/jenkins/workspace/Kubernetes_Test/infra/k8s/auth-depl.yaml"
+              sh "sudo ssh -i /var/lib/jenkins/workspace/Kubernetes_Test/jenkinsGCP.pem asterionmorrigan@162.222.181.223 kubectl apply -f /var/lib/jenkins/workspace/Kubernetes_Test/infra/k8s/ingress-srv.yaml"
           }
           catch(error){
               sh "echo error "
