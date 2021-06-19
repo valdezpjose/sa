@@ -70,7 +70,9 @@ pipeline {
     stage('Test') {
       steps {
         sh "echo $PWD"
+        sh "node -v"
         dir("book"){
+        sh "sudo chmod 0777 node_modules/.bin/mocha"
         sh "npm test"
         }
         
