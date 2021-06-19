@@ -198,3 +198,5 @@ app.post('/events',(req,res)=>{
     
     res.send({});
 });
+
+module.exports = app.listen(3001);
