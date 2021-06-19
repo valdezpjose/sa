@@ -42,7 +42,9 @@ app.post('/new',(req,res)=>{
 });
 
 app.get('/all', (req,res)=>{
-    Book.find({},(err,books)=>{
+    Book.find({
+        stock: {$ne: 0}
+    },(err,books)=>{
 
         res.send(books);
     });
@@ -60,7 +62,7 @@ app.post('/update', async (req,res)=>{
             name: name,
             editorial: editorial
         }, data);
-        return res.status(200).send({"action":"Libro actualizado"});
+        return res.status(200).send({action:"Libro actualizado"});
     }else{
         return res.status(404).send('No existe el usuario.');
     }
@@ -79,7 +81,7 @@ app.post('/delete', async (req,res)=>{
             name: name,
             editorial: editorial
         });
-        return res.status(200).send({"action":"Libro eliminado"});
+        return res.status(200).send("Libro eliminado");
     }else{
         return res.status(404).send('No existe el usuario.');
     }
@@ -95,6 +97,12 @@ app.post('/filter',async (req,res)=>{
     res.send(book);
 });
 
+
+app.get('/genre',async (req,res)=>{
+    const book = await Book.distinct('genre');
+
+    res.send(book);
+});
 
 app.post('/get',async (req,res)=>{
     const {name,editorial} = req.body

@@ -5,6 +5,10 @@ let chaiHttp = require("chai-http");
 chai.should();
 chai.use(chaiHttp);
 
+
+
+
+
 describe('APIs de los Libros',()=>{
 
     describe("Test microservicios Book",()=>{
@@ -23,7 +27,6 @@ describe('APIs de los Libros',()=>{
                 })
                 .end((err,response)=>{
                     response.should.have.status(200);
-                    response.body.should.be.eql({"action":"Libro creado"})    
                 done();
                 });
         });
@@ -35,8 +38,7 @@ describe('APIs de los Libros',()=>{
                     "editorial" : "60c3b249ea0e530670ca864f",
                     "data": {"stock":23}
                 })
-                .end((err,response)=>{
-                    response.body.should.be.eql({"action":"Libro actualizado"})    
+                .end((err,response)=>{ 
                     response.should.have.status(200);
                 done();
                 });
@@ -49,8 +51,7 @@ describe('APIs de los Libros',()=>{
                     "editorial" : "60c3b249ea0e530670ca864f"
                 })
                 .end((err,response)=>{
-                    response.should.have.status(200);
-                    response.body.should.be.eql({"action":"Libro eliminado"})     
+                    response.should.have.status(200); 
                 done();
                 });
         });
