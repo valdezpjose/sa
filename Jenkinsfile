@@ -66,6 +66,18 @@ pipeline {
 
     }
 
+    //STAGE DE PRUEBAS
+    stage('Test') {
+      steps {
+        sh "echo $PWD"
+        dir("book"){
+        sh "npm test"
+        }
+        
+      }
+    }
+
+
   }
 
 }
