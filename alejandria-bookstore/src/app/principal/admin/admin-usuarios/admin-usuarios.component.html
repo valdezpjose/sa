@@ -1,0 +1,96 @@
+<h1 class="title">Administrar Editoriales</h1>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Dirección</th>
+            <th>Estatus</th>
+            <th>Fecha de Creación</th>
+            <th>Última Modificación</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let editorial of mis_editoriales; let n = index">
+            <td>
+                {{ n+1 }}
+            </td>
+            <td>
+                <label>{{ editorial['name'] }}</label>
+            </td>
+            <td>
+                {{ editorial['email'] }}
+            </td>
+            <td>
+                {{ editorial['address'] }}
+            </td>
+            <td>
+                {{ editorial['status'] }}
+            </td>
+            <td>
+                {{ editorial["createdAt"] | date:'mediumDate':'UTC' }}
+            </td>
+            <td>
+                {{ editorial["updatedAt"] | date:'mediumDate':'UTC' }}
+            </td>
+            <td>
+                <button type="button" class="btn btn-warning" style="margin: 3px; width: 80px;" (click)="updateUser(editorial,true)">Editar</button>
+                <button type="button" class="btn btn-danger" style="margin: 3px; width: 80px;" (click)="deleteUser(editorial)">Eliminar</button>
+            </td>
+        </tr>
+        <!-- and so on... -->
+    </tbody>
+</table>
+<br>
+<br>
+<h1 class="title">Administrar Clientes</h1>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Estatus</th>
+            <th>Fecha de Creación</th>
+            <th>Última Modificación</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of mis_clientes; let n = index">
+            <td>
+                {{ n+1 }}
+            </td>
+            <td>
+                <label>{{ cliente['name'] }}</label>
+            </td>
+            <td>
+                {{ cliente['lastName'] }}
+            </td>
+            <td>
+                {{ cliente['email'] }}
+            </td>
+            <td>
+                {{ cliente['telephone'] }}
+            </td>
+            <td>
+                {{ cliente['status'] }}
+            </td>
+            <td>
+                {{ cliente["createdAt"] | date:'mediumDate':'UTC' }}
+            </td>
+            <td>
+                {{ cliente["updatedAt"] | date:'mediumDate':'UTC' }}
+            </td>
+            <td>
+                <button type="button" class="btn btn-warning" style="margin: 3px; width: 80px;" (click)="updateUser(cliente,false)">Editar</button>
+                <button type="button" class="btn btn-danger" style="margin: 3px; width: 80px;" (click)="deleteUser(cliente)">Eliminar</button>
+            </td>
+        </tr>
+        <!-- and so on... -->
+    </tbody>
+</table>

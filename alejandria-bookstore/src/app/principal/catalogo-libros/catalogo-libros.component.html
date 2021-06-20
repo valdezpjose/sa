@@ -1,0 +1,254 @@
+<!--ADMINISTRADOR-->
+<div *ngIf="user_type==1">
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li class="active"><a href="#">Inicio</a></li>
+                    <li><a routerLink="/principal/admin/admin-usuarios">Administrar Usuarios</a></li>
+                    <li><a routerLink="/principal/admin/confirmar-solicitud">Solicitudes</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="breadcrumb-header">Bienvenido</h3>
+                    <ul class="breadcrumb-tree">
+                        <li><a href="#">Administrador</a></li>
+                        <li class="active">Catálogo</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+</div>
+
+
+<!--EDITORIAL-->
+<div *ngIf="user_type==2">
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li class="active"><a href="#">Inicio</a></li>
+                    <li><a routerLink="/principal/editorial/admin-libros">Administrar Libros</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="breadcrumb-header">Bienvenido</h3>
+                    <ul class="breadcrumb-tree">
+                        <li><a>Editorial</a></li>
+                        <li class="active">Catálogo</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /BREADCRUMB -->
+</div>
+
+
+<!--CLIENTE-->
+<div *ngIf="user_type==0 || user_type==3">
+
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li class="active"><a href="#">Catálogo</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="breadcrumb-header">Bienvenido</h3>
+                    <ul class="breadcrumb-tree">
+                        <li><a>Cliente</a></li>
+                        <li class="active">Catálogo</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /BREADCRUMB -->
+</div>
+
+<div id="breadcrumb" class="section">
+    <div class="container" style="text-align: -webkit-center;">
+        <!-- SECTION -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- ASIDE -->
+                    <div id="aside" class="col-md-3">
+                        <!-- aside Widget -->
+                        <div class="aside">
+                            <h3 class="aside-title">Géneros</h3>
+                            <div class="checkbox-filter">
+
+                                <div *ngFor="let categoria of mis_categorias; let n = index" class="input-checkbox" style="text-align: left;">
+                                    <input type="checkbox" id="{{ categoria }}">
+                                    <label for="{{ categoria }}">
+                                        <span></span>
+                                        {{ categoria }}
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- /aside Widget -->
+
+                        <!-- aside Widget -->
+                        <div class="aside">
+                            <h3 class="aside-title">Editoriales</h3>
+                            <div class="checkbox-filter">
+
+                                <div *ngFor="let editorial of mis_editoriales; let n = index" class="input-checkbox"  style="text-align: left;">
+                                    <input type="checkbox" id="{{ editorial['name'] }}">
+                                    <label for="{{ editorial['name'] }}">
+                                        <span></span>
+                                        {{ editorial['name'] }}
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- /aside Widget -->
+                    </div>
+                    <!-- /ASIDE -->
+
+                    <!-- STORE -->
+                    <div id="store" class="col-md-9">
+                        <!-- store top filter
+                        <div class="store-filter clearfix">
+                            <div class="store-sort">
+                                <label>
+                                    Sort By:
+                                    <select class="input-select">
+                                        <option value="0">Popular</option>
+                                        <option value="1">Position</option>
+                                    </select>
+                                </label>
+
+                                <label>
+                                    Show:
+                                    <select class="input-select">
+                                        <option value="0">20</option>
+                                        <option value="1">50</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <ul class="store-grid">
+                                <li class="active"><i class="fa fa-th"></i></li>
+                                <li><a href="#"><i class="fa fa-th-list"></i></a></li>
+                            </ul>
+                        </div>
+                        /store top filter -->
+
+                        <!-- store products -->
+                        <div class="row">
+                            <!-- product -->
+                            <div *ngFor="let libro of my_books;" class="col-md-4 col-xs-6" style="min-height: 577.8px;">
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src="{{ libro['image'] }}" alt="">
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">
+                                            <span style="margin: 3px;" *ngFor="let generoLibro of libro['genre'];" >
+                                                {{ generoLibro }}
+                                            </span>
+                                        </p>
+                                        <h3 class="product-name">
+                                            <a routerLink="/principal/detalle-libro/{{libro['name']}}/{{libro['editorial']}}" >{{ libro['name'] }}</a></h3>
+                                        <h4 class="product-price">
+                                            {{ libro['price'] | currency: 'Q.' }}
+                                        </h4>
+                                    </div>
+                                    <div class="add-to-cart">
+                                        <button (click)="agregarAlCarro(libro)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
+                                            cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /product -->
+                        </div>
+                        <!-- /store products -->
+
+                        <!-- store bottom filter -->
+                        <div class="store-filter clearfix">
+                            <span class="store-qty">Showing 20-100 products</span>
+                            <ul class="store-pagination">
+                                <li class="active">1</li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- /store bottom filter -->
+                    </div>
+                    <!-- /STORE -->
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /SECTION -->
+    </div>
+</div>

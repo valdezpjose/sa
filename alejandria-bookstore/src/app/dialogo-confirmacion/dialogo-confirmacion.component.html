@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Confirmación</h1>
+<div mat-dialog-content>
+    <p [innerHTML]="mensaje" ></p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button class="btn btn-danger" style="margin: 5px;" (click)="cerrarDialogo()">No</button>
+    <button mat-button class="btn btn-success" style="margin: 5px;" (click)="confirmado()">Sí</button>
+</div>

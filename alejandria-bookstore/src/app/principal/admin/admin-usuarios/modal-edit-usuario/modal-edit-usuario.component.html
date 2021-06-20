@@ -1,0 +1,28 @@
+<div mat-dialog-content class="body">
+    <div class="container" id="container" style="height: 95vh;">
+        <div class="form-container sign-up-container">
+    
+            <form *ngIf="!data.userType">
+                <h1>Modificar usuario: {{data.email}}</h1>
+                <input type="text" placeholder="Nombre" [(ngModel)]="client_name" name="client_name" />
+                <input type="text" placeholder="Apellido" [(ngModel)]="client_last" name="client_last" />
+                <input type="password" placeholder="Contraseña" [(ngModel)]="client_pass" name="client_pass" />
+                <input type="password" placeholder="Confirmar Contraseña" [(ngModel)]="client_conf" name="client_conf" />
+                <input type="tel" placeholder="Teléfono" [(ngModel)]="client_tele" name="client_tele" />
+            </form>
+    
+            <form #elseBlock>
+                <h1>Modificar editorial: {{data.email}}</h1>
+                <input type="text" placeholder="Nombre" [(ngModel)]="publisher_name" name="publisher_name" />
+                <input type="password" placeholder="Contraseña" [(ngModel)]="publisher_pass" name="publisher_pass" />
+                <input type="password" placeholder="Confirmar Contraseña" [(ngModel)]="publisher_conf" name="publisher_conf" />
+                <input type="text" placeholder="Dirección" [(ngModel)]="publisher_addr" name="publisher_addr" />
+            </form>
+    
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button class="btn btn-danger" style="margin: 5px;" (click)="cerrarDialogo()">No</button>
+    <button mat-button class="btn btn-success" style="margin: 5px;" (click)="confirmado()">Sí</button>
+</div>

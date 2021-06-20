@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Confirmación</h1>
+<div mat-dialog-content>
+    <p [innerHTML]="parametros.mensaje"></p>
+</div>
+<div><input type="number" max="{{ parametros.max }}" min="0" placeholder="Cantidad"  (change)="validacion()" [(ngModel)]="cantidad" name="cantidad">
+</div>
+<div mat-dialog-actions>
+    <button mat-button class="btn btn-danger" style="margin: 5px;" (click)="cerrarDialogo()">Cancelar</button>
+    <button mat-button class="btn btn-success" style="margin: 5px;" (click)="confirmado()">Aceptar</button>
+</div>

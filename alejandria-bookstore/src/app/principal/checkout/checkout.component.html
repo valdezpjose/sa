@@ -1,0 +1,230 @@
+<!--ADMINISTRADOR-->
+<div *ngIf="user_type==1">
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li class="active"><a href="#">Inicio</a></li>
+                    <li><a>Administrar Usuarios</a></li>
+                    <li><a routerLink="/principal/admin/confirmar-solicitud">Solicitudes</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="breadcrumb-header">Bienvenido</h3>
+                    <ul class="breadcrumb-tree">
+                        <li><a href="#">Administrador</a></li>
+                        <li class="active">Catálogo</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+</div>
+
+
+<!--EDITORIAL-->
+<div *ngIf="user_type==2">
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li class="active"><a href="#">Inicio</a></li>
+                    <li><a routerLink="/principal/editorial/admin-libros">Administrar Libros</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="breadcrumb-header">Bienvenido</h3>
+                    <ul class="breadcrumb-tree">
+                        <li><a>Editorial</a></li>
+                        <li class="active">Catálogo</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /BREADCRUMB -->
+</div>
+
+
+<!--CLIENTE-->
+<div *ngIf="user_type==0 || user_type==3">
+
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li class="active"><a href="#">Catálogo</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="breadcrumb-header">Bienvenido</h3>
+                    <ul class="breadcrumb-tree">
+                        <li><a>Cliente</a></li>
+                        <li class="active">Checkout</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /BREADCRUMB -->
+</div>
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-md-7">
+                <!-- Billing Details -->
+                <div class="billing-details">
+                    <div class="section-title">
+                        <h3 class="title">Información de Envío</h3>
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="text" placeholder="Nombre" [(ngModel)]="nombre_compra" name="nombre_compra">
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="text"placeholder="Apellido" [(ngModel)]="apellido_compra" name="apellido_compra">
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="email" placeholder="Correo Electrónico" [(ngModel)]="correo_compra" name="correo_compra">
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="text" placeholder="Dirección" [(ngModel)]="direccion_compra" name="direccion_compra">
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="tel" placeholder="Telephone" [(ngModel)]="telefono_compra" name="telefono_compra">
+                    </div>
+                </div>
+                <!-- /Billing Details -->
+
+                <!-- Order notes -->
+                <div class="order-notes">
+                    <textarea class="input" placeholder="Notas adicionales"></textarea>
+                </div>
+                <!-- /Order notes -->
+            </div>
+
+            <!-- Order Details -->
+            <div class="col-md-5 order-details">
+                <div class="section-title text-center">
+                    <h3 class="title">Su Orden</h3>
+                </div>
+                <div class="order-summary">
+                    <div class="order-col">
+                        <div><strong>Productos</strong></div>
+                        <div><strong>TOTAL</strong></div>
+                    </div>
+                    <div class="order-products">
+                        <div *ngFor="let item of mi_carrito" class="order-col">
+                            <div>{{ item['cantidad'] }}x {{ item['name'] }}</div>
+                            <div>{{ item['price'] | currency: 'Q.' }}</div>
+                        </div>
+                    </div>
+                    <div class="order-col">
+                        <div>Envío</div>
+                        <div><strong>Gratuíto</strong></div>
+                    </div>
+                    <div class="order-col">
+                        <div><strong>TOTAL</strong></div>
+                        <div><strong class="order-total">{{ total | currency: 'Q.' }}</strong></div>
+                    </div>
+                </div>
+                <div class="payment-method">
+                    <div class="input-radio">
+                        <input type="radio" name="payment" id="payment-1" checked>
+                        <label for="payment-1">
+                            <span></span>
+                            Transferencia Bancaria
+                        </label>
+                    </div>
+                    <div class="input-radio">
+                        <input type="radio" name="payment" id="payment-2">
+                        <label for="payment-2">
+                            <span></span>
+                            Pago con Tarjeta de Débito o Crédito
+                        </label>
+                    </div>
+                    <div class="input-radio">
+                        <input type="radio" name="payment" id="payment-3">
+                        <label for="payment-3">
+                            <span></span>
+                            Sistema PayPal
+                        </label>
+                    </div>
+                </div>
+                <div class="input-checkbox">
+                    <input type="checkbox" id="terms" [(ngModel)]="terminos_aceptados" name="terminos_aceptados">
+                    <label for="terms">
+                        <span></span>
+                        Confirmo que he leído y acepto los <a href="#">términos & condiciones</a>
+                    </label>
+                </div>
+                <a (click)="realizarCompra()" class="primary-btn order-submit">Realizar Orden</a>
+            </div>
+            <!-- /Order Details -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->

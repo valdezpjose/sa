@@ -1,0 +1,175 @@
+<!--ADMINISTRADOR-->
+<div *ngIf="user_type==1">
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li class="active"><a href="#">Inicio</a></li>
+                    <li><a>Categorías</a></li>
+                    <li><a>Administrar Usuarios</a></li>
+                    <li><a routerLink="/principal/admin/confirmar-solicitud">Solicitudes</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="breadcrumb-header">Bienvenido</h3>
+                    <ul class="breadcrumb-tree">
+                        <li><a href="#">Administrador</a></li>
+                        <li class="active">Perfil</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+</div>
+
+
+<!--EDITORIAL-->
+<div *ngIf="user_type==2">
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li class="active"><a href="#">Inicio</a></li>
+                    <li><a>Categorías</a></li>
+                    <li><a routerLink="/principal/editorial/admin-libros">Administrar Libros</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="breadcrumb-header">Bienvenido</h3>
+                    <ul class="breadcrumb-tree">
+                        <li><a>Editorial</a></li>
+                        <li class="active">Perfil</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /BREADCRUMB -->
+</div>
+
+
+<!--CLIENTE-->
+<div *ngIf="user_type==0 || user_type==3">
+
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li class="active"><a href="#">Catálogo</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="breadcrumb-header">Bienvenido</h3>
+                    <ul class="breadcrumb-tree">
+                        <li><a>Cliente</a></li>
+                        <li class="active">Perfil</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /BREADCRUMB -->
+</div>
+
+<div id="breadcrumb" class="section">
+    <div class="container" style="text-align: -webkit-center;">
+        <div class="billing-details" style="width: 50%;">
+            <div class="section-title">
+                <h1 class="title">Mi Perfil</h1>
+            </div>
+            <div class="form-group">
+                <label for="book_name">Nombre</label>
+                <input class="input" type="text" placeholder="Nombre" [(ngModel)]="nombr_usr" name="nombr_usr"
+                    [readonly]="!editable">
+            </div>
+            <div class="form-group">
+                <label for="book_name">Correo Electrónico</label>
+                <input class="input" type="text" placeholder="Correo Electrónico" [(ngModel)]="email_usr"
+                    name="email_usr" [readonly]="!editable">
+            </div>
+            <div class="form-group">
+                <label for="book_name">Dirección</label>
+                <input class="input" type="text" placeholder="Dirección" [(ngModel)]="addre_usr" name="addre_usr"
+                    [readonly]="!editable">
+            </div>
+            <div *ngIf="editable" class="form-group">
+                <label for="book_name">Contraseña</label>
+                <input class="input" type="password" placeholder="Dejar en blanco si no desea cambiarla" [(ngModel)]="passw_usr" name="passw_usr"
+                    [readonly]="!editable">
+            </div>
+            <div *ngIf="editable" class="form-group">
+                <label for="book_name">Confirmar Contraseña</label>
+                <input  class="input" type="password" placeholder="Confirmar cambio de contraseña" [(ngModel)]="confi_usr"
+                    name="confi_usr" [readonly]="!editable">
+            </div>
+            <div *ngIf="!editable" class="form-group">
+                <button (click)="editable=!editable" class="btn btn-success">Modificar Datos</button>
+            </div>
+            <div *ngIf="editable" class="form-group">
+                <button (click)="aceptar()" style="margin: 5px;" class="btn btn-success">Aceptar</button>
+                <button (click)="cancelar()" style="margin: 5px;" class="btn btn-danger">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Billing Details -->
+
+<!-- /Billing Details -->

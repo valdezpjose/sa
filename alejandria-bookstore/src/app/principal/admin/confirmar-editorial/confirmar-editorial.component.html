@@ -1,0 +1,36 @@
+<h1>Editoriales Por Confirmar</h1>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Dirección</th>
+            <th>Fecha de Creación</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let editorial of noConfirmadas; let n = index">
+            <td>
+                {{ n+1 }}
+            </td>
+            <td>
+                {{ editorial['name'] }}
+            </td>
+            <td>
+                {{ editorial['email'] }}
+            </td>
+            <td>
+                {{ editorial['address'] }}
+            </td>
+            <td>
+                {{ editorial["createdAt"] | date:'mediumDate':'UTC' }}
+            </td>
+            <td>
+                <button type="button" class="btn btn-success" style="margin: 5px;" (click)='acceptRequest(editorial)'  >Aceptar</button>
+            </td>
+        </tr>
+        <!-- and so on... -->
+    </tbody>
+</table>

@@ -1,0 +1,105 @@
+<!-- Billing Details -->
+<div class="billing-details" style="width: 50%;">
+    <div class="section-title">
+        <h1 class="title">Agregar Libro</h1>
+    </div>
+    <div class="form-group">
+        <img [src]="imageSrc" style="max-width:300px;max-height:300px"/>
+        <br>
+        <br>
+        <input name="imageUrl" type="file" accept="image/*" (change)="handleInputChange($event)" />
+    </div> 
+    <div class="form-group">
+        <label for="book_name">Nombre del Libro</label>
+        <input class="input" type="text" placeholder="Nombre" [(ngModel)]="book_name" name="book_name">
+    </div>
+    <div class="form-group">
+        <label for="book_genre">Géneros</label>
+        <ng-multiselect-dropdown id="book_genre" name="book_genre" [placeholder]="'Géneros'" [data]="misGeneros"
+            [(ngModel)]="misGenerosSelected" [settings]="misGenerosSettings" ngModel>
+        </ng-multiselect-dropdown>
+        <br>
+        <br>
+        <label for="">¿No encuentra el género que busca?... Agréguelo!"</label>
+        <div class="form-group">
+            <input class="input" type="text" name="new_genre" placeholder="Agregar Género" [(ngModel)]="genre_input" name="genre_input">
+            <br>
+            <br>
+            <button class="btn btn-success" (click)='addGenre()' >Agregar</button>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label for="book_auth">Autor del Libro</label>
+        <input class="input" type="text" placeholder="Autor" [(ngModel)]="book_auth" name="book_auth">
+    </div>
+    <div class="form-group">
+        <label for="book_syno">Sinópsis del Libro</label>
+        <textarea class="input" cols="30" rows="10" placeholder="Sinópsis" [(ngModel)]="book_syno"
+            name="book_syno"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="book_stoc">Libros en Stock</label>
+        <input class="input" type="number" min="0" placeholder="Stock" [(ngModel)]="book_stoc" name="book_stoc">
+    </div>
+    <div class="form-group">
+        <label for="book_pric">Precio del Libro</label>
+        <input class="input" type="number" min="0" placeholder="Precio" [(ngModel)]="book_pric" name="book_pric">
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success" (click)='saveBook()' >Guardar Libro</button>
+        <button class="btn btn-success" (click)='updateBook()' >Modificar Libro</button>
+    </div>
+</div>
+<!-- /Billing Details -->
+<br>
+<h1 class="title">Mis Libros</h1>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Libro</th>
+            <th>Autor</th>
+            <th>Stock</th>
+            <th>Precio</th>
+            <th>Fecha de Creación</th>
+            <th>Última Actualización</th>
+            <th>Sinópsis</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let libro of misLibros; let n = index">
+            <td>
+                {{ n+1 }}
+            </td>
+            <td>
+                <img [src]="libro['image']" style="max-width:100px;max-height:100px"/>
+                <label>{{ libro['name'] }}</label>
+            </td>
+            <td>
+                {{ libro['author'] }}
+            </td>
+            <td>
+                {{ libro['stock'] }}
+            </td>
+            <td>
+                {{ libro['price'] }}
+            </td>
+            <td>
+                {{ editorial["createdAt"] | date:'mediumDate':'UTC' }}
+            </td>
+            <td>
+                {{ editorial["updatedAt"] | date:'mediumDate':'UTC' }}
+            </td>
+            <td>
+                {{ libro['synopsis'] }}
+            </td>
+            <td>
+                <button type="button" class="btn btn-warning" style="margin: 3px; width: 80px;" (click)='loadBook(libro)'>Editar</button>
+                <button type="button" class="btn btn-danger" style="margin: 3px; width: 80px;" (click)='deleteBook(libro)' >Eliminar</button>
+            </td>
+        </tr>
+        <!-- and so on... -->
+    </tbody>
+</table>

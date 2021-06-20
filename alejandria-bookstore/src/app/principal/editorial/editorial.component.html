@@ -1,0 +1,45 @@
+<!-- NAVIGATION -->
+<nav id="navigation">
+    <!-- container -->
+    <div class="container">
+        <!-- responsive-nav -->
+        <div id="responsive-nav">
+            <!-- NAV -->
+            <ul class="main-nav nav navbar-nav">
+                <li class="active"><a href="#">Inicio</a></li>
+                <li><a>Categorías</a></li>
+                <li><a routerLink="admin-libros">Administrar Libros</a></li>
+            </ul>
+            <!-- /NAV -->
+        </div>
+        <!-- /responsive-nav -->
+    </div>
+    <!-- /container -->
+</nav>
+<!-- /NAVIGATION -->
+
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">Bienvenido</h3>
+                <ul class="breadcrumb-tree">
+                    <li><a>Editorial</a></li>
+                    <li class="active">Catálogo</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+
+<div id="breadcrumb" class="section">
+    <div class="container" style="text-align: -webkit-center;">
+        <router-outlet></router-outlet>
+    </div>
+</div>
