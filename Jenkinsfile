@@ -10,6 +10,25 @@ pipeline {
       }
     }
 
+    //STAGE DE PRUEBAS
+    stage('Test') {
+      steps {
+        sh "echo $PWD"
+        sh "node -v"
+        dir("book"){
+        sh "sudo chmod 0777 node_modules/.bin/mocha"
+        sh "npm test"
+        }
+
+        dir("user"){
+        sh "sudo chmod 0777 node_modules/.bin/mocha"
+        sh "npm test"
+        }
+        
+      }
+    }
+
+
     stage('Deploy App') {
       steps {
         sshagent(['JenkinsUser']) {
@@ -64,17 +83,6 @@ pipeline {
 
 
 
-    }
-
-    //STAGE DE PRUEBAS
-    stage('Test') {
-      steps {
-        sh "echo $PWD"
-        dir("book"){
-        sh "npm test"
-        }
-        
-      }
     }
 
 
